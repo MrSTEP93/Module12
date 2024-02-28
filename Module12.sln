@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module12.Task1", "Module12.Task1\Module12.Task1.csproj", "{D838D6AF-C8BF-45F6-B0EC-0E1B2CF64154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationsTimer", "OperationsTimer\OperationsTimer.csproj", "{2A0CACA1-497D-4FC3-8EB2-AD40917F79A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperationsTimer", "OperationsTimer\OperationsTimer.csproj", "{2A0CACA1-497D-4FC3-8EB2-AD40917F79A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profiling", "Profiling\Profiling.csproj", "{DD761A99-4715-44D5-A687-067A294E2D36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2A0CACA1-497D-4FC3-8EB2-AD40917F79A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A0CACA1-497D-4FC3-8EB2-AD40917F79A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A0CACA1-497D-4FC3-8EB2-AD40917F79A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD761A99-4715-44D5-A687-067A294E2D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD761A99-4715-44D5-A687-067A294E2D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD761A99-4715-44D5-A687-067A294E2D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD761A99-4715-44D5-A687-067A294E2D36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

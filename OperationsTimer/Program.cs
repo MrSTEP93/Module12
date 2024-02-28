@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
@@ -7,7 +8,7 @@ namespace OperationsTimer
 {
     internal class Program
     {
-        static int arrLength = 3000000;
+        static int arrLength = 1000;
         static int[] myArr1 = new int[arrLength];
         static List<int> found = new();
 
@@ -18,6 +19,8 @@ namespace OperationsTimer
         {
             Console.WriteLine("Hello World!");
 
+            var summary = BenchmarkRunner.Run<Testing>();
+            /*
             Random random = new Random();
             searchNum = random.Next(arrLength);
 
@@ -28,22 +31,25 @@ namespace OperationsTimer
                 FillArray(true);
                 sw.Stop();
                 Console.WriteLine($"Elapsed time: {sw.Elapsed};  Elapsed milliseconds: {sw.ElapsedMilliseconds}");
-
+                /*
                 sw.Reset();
                 sw.Start();
                 LineSearch(searchNum);
                 sw.Stop();
                 Console.WriteLine($"Elapsed time: {sw.Elapsed};  Elapsed milliseconds: {sw.ElapsedMilliseconds}");
-
+                //* /
                 sw.Reset();
                 sw.Start();
-                BinarySearch(searchNum);
+                BinarySearchNoRecursion(searchNum);
                 sw.Stop();
                 Console.WriteLine($"Elapsed time: {sw.Elapsed};  Elapsed milliseconds: {sw.ElapsedMilliseconds}");
 
                 Console.ReadKey();
                 Console.WriteLine();
             } while (true);
+            */
+
+
         }
 
         static void FillArray(bool isRandom)
@@ -110,12 +116,50 @@ namespace OperationsTimer
                 if (num < myArr1[center]) 
                 {
                     Split(ref num, ref counter, rightPoint, center);
+                    return;
                 } else if (num > myArr1[center])
                 {
                     Split(ref num, ref counter, center, leftPoint);
+                    return;
                 }
             }
+        }
 
+        static void BinarySearchNoRecursion(int num)
+        {
+            int counter = 0;
+            Console.WriteLine($"Starting BINARY search WO RECURSION of number  \"{num}\" in array[{arrLength}]");
+            SortArray();
+            bool isFound = false;
+            int left = 0;
+            int right = arrLength - 1;
+            int middle;
+            int cur;
+            while (left <= right)
+            {
+                counter++;
+                middle = (left + right) / 2;
+                cur = myArr1[middle];
+                if (cur == num)
+                {
+                    isFound = true;
+                    Console.WriteLine("___Position of search element is " + middle);
+                    break;
+                } else if (cur > num) 
+                {
+                    right = middle - 1;
+                } else
+                {
+                    left = middle + 1;
+                }
+            }
+            if (isFound)
+            {
+                Console.WriteLine($"Search complete in {counter:N0}   steps");
+            } else
+            {
+                Console.WriteLine("There is no such element");
+            }
         }
     }
 }
